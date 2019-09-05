@@ -1,12 +1,14 @@
 package com.guitar.db;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import com.guitar.db.repository.LocationJpaRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +25,21 @@ public class LocationPersistenceTests {
 	@Autowired
 	private LocationRepository locationRepository;
 
+	@Autowired
+	private LocationJpaRepository locationJpaRepository;
+
+
+
+
 	@PersistenceContext
 	private EntityManager entityManager;
+
+
+	@Test
+	public void testJpaFind(){
+		List<Location> location =  locationJpaRepository.findAll();
+		assertNotNull(location);
+	}
 
 	@Test
 	@Transactional
