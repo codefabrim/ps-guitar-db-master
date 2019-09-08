@@ -67,6 +67,20 @@ public class LocationPersistenceTests {
 	}
 
 	@Test
+	public void testJpaAnd() throws Exception {
+		List<Location> locs = locationJpaRepository.findByStateAndCountryLike("Maryland", "United States");
+		assertEquals("Maryland", locs.get(0).getState());
+
+    }
+	@Test
+	public void testJpaOr() throws Exception {
+		List<Location> locs = locationJpaRepository.findByStateOrCountryLike("Maryland", "");
+        assertEquals("Maryland", locs.get(0).getState());
+	}
+
+
+
+	@Test
 	@Transactional  //note this is needed because we will get a lazy load exception unless we are in a tx
 	public void testFindWithChildren() throws Exception {
 		Location arizona = locationJpaRepository.findOne(3L);

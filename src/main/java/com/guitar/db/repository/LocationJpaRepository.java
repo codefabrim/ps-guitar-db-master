@@ -8,4 +8,12 @@ import java.util.List;
 public interface LocationJpaRepository extends JpaRepository <Location, Long> {
 
     List<Location> findByStateLike(String name);
+
+
+    List<Location> findByStateOrCountryLike(String value, String value2);
+
+    List<Location> findByStateAndCountryLike(String state, String country);
+
+
+
 }
