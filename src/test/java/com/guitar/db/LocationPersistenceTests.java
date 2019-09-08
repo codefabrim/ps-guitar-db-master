@@ -68,12 +68,16 @@ public class LocationPersistenceTests {
 		assertEquals(46, locs.size());
 
 		locs = locationJpaRepository.findByStateNotLikeOrderByStateAsc("New%");
-		assertEquals("Alabama", locs.get(0).getState());
+		assertEquals("Alaska", locs.get(1).getState());
 
 		locs.forEach(
 				(item) -> {
-					System.out.println(item.getState());
+					System.out.println (item.getState());
 				});
+
+		locs  = locationJpaRepository.findFirstByStateIgnoreCaseStartingWith("a");
+		assertEquals("Alabama", locs.get(0).getState());
+
 	}
 
 	@Test
