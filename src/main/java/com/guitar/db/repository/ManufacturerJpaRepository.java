@@ -12,6 +12,9 @@ public interface ManufacturerJpaRepository  extends JpaRepository <Manufacturer,
 
     List<Manufacturer> findByFoundedDateBefore(Date d);
 
+    List<Manufacturer> findByActiveTrue();
+    List<Manufacturer> findByActiveFalse();
+
 
 
 }

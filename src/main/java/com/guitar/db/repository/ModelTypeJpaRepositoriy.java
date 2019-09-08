@@ -10,4 +10,6 @@ public interface ModelTypeJpaRepositoriy  extends JpaRepository<ModelType, Long>
 
 
 
+
+
 }
