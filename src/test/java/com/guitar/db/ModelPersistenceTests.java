@@ -60,7 +60,6 @@ public class ModelPersistenceTests {
 
 	@Test
 	public void testGetModelsInPriceRange() throws Exception {
-//		List<Model> mods = modelJpaRepository.getModelsInPriceRange(BigDecimal.valueOf(1000L), BigDecimal.valueOf(2000L));
 		List<Model> mods = modelJpaRepository.findByPriceGreaterThanEqualAndPriceLessThanEqual(BigDecimal.valueOf(1000L), BigDecimal.valueOf(2000L));
 		assertEquals(4, mods.size());
 	}
