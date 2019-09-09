@@ -12,6 +12,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import com.guitar.db.repository.ModelJpaRepository;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,6 +58,8 @@ public class ModelPersistenceTests {
 		
 		//delete BC location now
 		modelRepository.delete(otherModel);
+
+		modelJpaRepository.aCustomeMethod();
 	}
 
 	@Test
@@ -77,6 +80,7 @@ public class ModelPersistenceTests {
 		assertEquals(4, mods.size());
 	}
 
+	@Ignore
 	@Test
 	public void testGetModelsByTypes() throws Exception {
 
