@@ -23,5 +23,7 @@ public interface ModelJpaRepository  extends JpaRepository<Model, Long> {
 
 
 
+    List<Model> findAllModelsByType(@Param("name") String name);
+
 
 }
